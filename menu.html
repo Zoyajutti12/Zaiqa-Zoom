@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Menu</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.menu-item {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+.menu-item:hover { transform: scale(1.02); }
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.menu-info { padding: 15px; }
+.price {
+  color: #26a116;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.order-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #26a116;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.order-btn:hover {
+  background-color: #2ab031;
+  transform: translateY(-2px);
+}
+.qty-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+}
+.qty-control input {
+  width: 50px;
+  text-align: center;
+}
+.qty-control button {
+  padding: 4px 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="menu-container">
+
+  <!-- Menu Item Template -->
+  <div class="menu-item">
+    <img src="" alt="Chicken Biryani">
+    <div class="menu-info">
+      <h3>Chicken Biryani</h3>
+      <p class="price">Rs. 350</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this, -1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="" alt="Zinger Burger">
+    <div class="menu-info">
+      <h3>Zinger Burger</h3>
+      <p class="price">Rs. 450</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this, -1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Add more items here, same format -->
+  <div class="menu-item">
+    <img src="" alt="Chicken Karahi">
+    <div class="menu-info">
+      <h3>Chicken Karahi</h3>
+      <p class="price">Rs. 1200</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Seekh Kabab">
+    <div class="menu-info">
+      <h3>Seekh Kabab</h3>
+      <p class="price">Rs. 600</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Chicken Pizza">
+    <div class="menu-info">
+      <h3>Chicken Pizza</h3>
+      <p class="price">Rs. 900</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="French Fries">
+    <div class="menu-info">
+      <h3>French Fries</h3>
+      <p class="price">Rs. 200</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Chicken Shawarma">
+    <div class="menu-info">
+      <h3>Chicken Shawarma</h3>
+      <p class="price">Rs. 250</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Ice Cream">
+    <div class="menu-info">
+      <h3>Ice Cream</h3>
+      <p class="price">Rs. 150</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Beef Burger">
+    <div class="menu-info">
+      <h3>Beef Burger</h3>
+      <p class="price">Rs. 500</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Chicken Roll">
+    <div class="menu-info">
+      <h3>Chicken Roll</h3>
+      <p class="price">Rs. 180</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Gol Gappa">
+    <div class="menu-info">
+      <h3>Gol Gappa</h3>
+      <p class="price">Rs. 120</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Aaloo Samosa">
+    <div class="menu-info">
+      <h3>Aaloo Samosa</h3>
+      <p class="price">Rs. 60</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <div class="menu-item">
+    <img src="" alt="Chicken Samosa">
+    <div class="menu-info">
+      <h3>Chicken Samosa</h3>
+      <p class="price">Rs. 80</p>
+      <div class="qty-control">
+        <button onclick="changeQty(this,-1)">-</button>
+        <input type="number" value="1" min="1">
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Function to increment/decrement quantity
+function changeQty(btn, delta) {
+  const input = btn.parentNode.querySelector('input');
+  let val = parseInt(input.value) || 1;
+  val += delta;
+  if(val < 1) val = 1;
+  input.value = val;
+}
+
+// Function to add item to cart
+
+function addToCart(btn) {
+  const card = btn.closest('.menu-item');
+  const name = card.querySelector('h3').innerText;
+  const priceText = card.querySelector('.price').innerText.replace(/\D/g,'');
+  const price = parseInt(priceText) || 0;
+  const qty = parseInt(card.querySelector('input').value) || 1;
+
+  // Replace this with actual cart logic
+  alert(`${name} x${qty} added to cart! Price: Rs. ${price*qty}`);
+}
+
+// Optional: Search filter
+function filterMenuItems(searchTerm) {
+  searchTerm = searchTerm.toLowerCase();
+  const items = document.querySelectorAll('.menu-item');
+  items.forEach(item => {
+    const text = item.innerText.toLowerCase();
+    item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

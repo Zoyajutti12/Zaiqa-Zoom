@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eef2f3 ;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    section {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2e7d32;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2e7d32;
+      outline: none;
+      box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #1b5e20;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ABOUT FORM -->
+  <section>
+    <form id="aboutForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" placeholder="Enter your Name" maxlength="30" required>
+
+      <label for="source">How did you hear about us?</label>
+      <input type="text" id="source" placeholder="Facebook, Friend, etc." required>
+
+      <label for="thoughts">Your Thoughts:</label>
+      <textarea id="thoughts" placeholder="Your message or feedback" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+      <h2>About Me</h2>
+      <p>I am a passionate student, and this is my very first step into the world of web development.</p>
+      <p>Living in Moro, a small city, I worked with dedication to create something new that had never been done here before.</p>
+      <p>This project, Zaiqa Zoom, is the result of my effort, my learning, and my hard work.</p>
+      <p>Through this website, I want to bring ease and comfort for everyone with online food delivery services.</p>
+      <p>Although it started small, I am continuously working to improve it and will keep adding new features in the future.</p>
+      <p>Every page and every detail reflects my struggle and passion for learning and creating something valuable.</p>
+      <p>This is just the beginning of my journey — I will keep moving forward, keep learning, and keep building better things ahead.</p>
+  </section>
+  
+  
+  <script>
+    const nameInput = document.getElementById("name");
+
+    // Real-time restriction (sirf alphabets allowed)
+    nameInput.addEventListener("input", function() {
+      this.value = this.value.replace(/[^a-zA-Z\s]/g, ""); // sirf alphabets aur space
+      if (this.value.length > 30) {
+        this.value = this.value.substring(0, 30); // max 30 characters
+      }
+    });
+
+    document.getElementById("aboutForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const name = nameInput.value.trim();
+
+      if (name.length === 0) {
+        alert("❌ Name field cannot be empty.");
+        return;
+      }
+
+      alert("✅ Form submitted successfully!");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
